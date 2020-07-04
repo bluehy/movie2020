@@ -38,7 +38,7 @@ class App extends React.Component{
       <section className="container">
         {isLoading 
           ? <div className="loader">
-              <span className="loader__text">Loading. . .</span>
+              <span className="loader__text">PLEASE WAIT . .</span>
             </div>
           : <div className="movies clearfix">
             {movies.map(movie => (
