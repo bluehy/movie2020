@@ -6,8 +6,8 @@
 
 .movie__title {width: 90%; height: 30px; font-size: 1.3rem; font-weight: bold; color:#333; margin-bottom :0.2rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 
-.genres {list-style:none; width: 100%; height: auto; font-size:0.8rem; color:#aaa; margin-bottom:0.2rem;}
-.genres .genres_genre {height: 0.8rem; float:left; margin-right: 5px;}
+.movie__genres {list-style:none; width: 100%; height: auto; font-size:0.8rem; color:#aaa; margin-bottom:0.2rem;}
+.movie__genres .genres_genre {height: 0.8rem; float:left; margin-right: 5px;}
 .genres_genre:last-of-type {margin-right:0;}
 
 .movie_year {color:#aaa; margin-bottom: 0.8rem;}
