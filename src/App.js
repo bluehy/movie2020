@@ -1,62 +1,24 @@
 import React from 'react';
-// import PropTypes, { string } from "prop-types";
-import axios from "axios";
-import Movie from "./Movie";
-import "./reset.css"
-import "./common.css"
-import "./App.css"
+import { HashRouter, Route } from "react-router-dom";
+import Home from "./routes/Home"
+import About from "./routes/About";
 
-// function App -> class App
-class App extends React.Component{
-  state = {
-    isLoading: true,
-    movies: []
-  }
 
-  // data를 fetch from API(Application Programming Interface)
-  getMovies = async () => {
-    const {data: 
-      {data: 
-        {movies}
-      }
-    } =  await axios.get("https://yts.mx/api/v2/list_movies.json?sort_by=rating");
-    // this.setState({movies/* state의 movies */:movies/* axios에서 가져온 movies */})
-    this.setState({movies, isLoading:false})
-    /* ES6형태로 단축할 수 있음. */
-  }
-  // 비동기식 함수 : axios 접근이 끝나길 기다렸다가, 계속하게끔 명령.
-
-  componentDidMount(){
-    this.getMovies()
-  }
-
-  // class-render
-  render(){
-    const { isLoading, movies } = this.state;
-    // ES6의 class component
-    return (
-      <section className="container">
-        {isLoading 
-          ? <div className="loader">
-              <span className="loader__text">PLEASE WAIT . .</span>
-            </div>
-          : <div className="movies clearfix">
-            {movies.map(movie => (
-              <Movie 
-                key={movie.id}
-                id={movie.id}
-                year={movie.year} 
-                title={movie.title} 
-                summary={movie.summary} 
-                poster={movie.medium_cover_image}
-                genres={movie.genres}
-              />
-            ))}
-            </div>
-        }
-      </section>
-    );
-  }
+function App(){
+  return <HashRouter>
+    <Route path="/home">
+      <h1>Home</h1>
+    </Route>
+    <Route path="/home/introduction">
+      <h1>Introduction</h1>
+    </Route>
+    <Route path="/about">
+      <h1>About</h1>
+    </Route>
+    {/* Route는 두개의 props를 가지게 되는데, 하나는 렌더링할 스크린/ 하나는 무슨 명령을 수행할지.
+    여기서는 /about에 접속할 경우, About 컴포넌트를 불러오는 기능을 지정한 것. */}
+  </HashRouter>
+  // 라우터를 만들고(return), 안에 루트를 집어넣는 것.
 }
 
 export default App;
